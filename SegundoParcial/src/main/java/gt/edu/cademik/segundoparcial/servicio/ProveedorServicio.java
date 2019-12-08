@@ -17,5 +17,14 @@ public class ProveedorServicio {
     public ProveedorServicio (EntityManager em) {
         this.em=em;
     }
+    
+    public List<Proveedor>findAllWithCriteria(){
+        CriteriaBuilder builder = this.em.getCriteriaBuilder();
+        CriteriaQuery<Proveedor> proveedorQuery = builder.createQuery(Proveedor.class);
+        Root<Proveedor>proveedorRoot =proveedorQuery.from(Proveedor.class);
+        proveedorQuery.select (proveedorRoot);
+        List<Proveedor> proveedorList = this.em.createQuery(proveedorQuery).getResultList();
+        return proveedorList;
+    }
        
 }

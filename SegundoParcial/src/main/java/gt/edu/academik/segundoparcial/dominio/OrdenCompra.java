@@ -33,7 +33,7 @@ public class OrdenCompra implements Serializable {
     @Column (name = "pedido_fecha")
     private Date pedidoFecha;
     
-    @ManyToMany
+    @ManyToOne
     @JoinColumn( name = "proveedor_id",referencedColumnName = "proveedor_id")
     private Proveedor proveedor;
     
